@@ -126,8 +126,8 @@ Findseqcoors
 Cutclusters
 ancdis=`expr $ancdis - 3`
 Copyscripts
-pwd ##### in Output/anchordis39/######
-echo "ancdis is $ancdis"      #36
+pwd 
+echo "ancdis is $ancdis"      
 
 
 for k in cluster*/
@@ -147,14 +147,14 @@ Findseqcoors
 rm cluster*.fasta
 Cutclusters
 echo "After cut in "
-pwd            #/Output2/anchordis39/cluster3/anchordis36
+pwd            
 ancdis=`expr $ancdis - 3`
 Copyscripts
 dir="$PWD"
 for i in $dir/cluster*/
 do
 cd $i
-mv cluster*.* anchordis*/   ###Output2/anchordis39/cluster1/anchordis36/cluster1
+mv cluster*.* anchordis*/   
 cd anchordis*/
 Clustersize
 echo " after loop in"
