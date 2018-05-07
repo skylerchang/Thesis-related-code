@@ -139,7 +139,14 @@ n=$(find . -name "cluster*"  -type f -exec bash -c '[[ $(wc -l < "$1") -gt 150 ]
 echo "n is $n"
 if [ $n -eq 0 ]
 then
-echo "yes******"
+echo "**********Clustering Work Done*************"
 break
 fi
 done
+#############Collect the anchor information######################
+pwd
+cd ../
+find . -type f -name 'Anchors*.txt' -exec cat {} + >> outputanchors.txt
+awk -F',' '{print $3,$2,$1}' outputanchors.txt | sort -gk1,1r -gk2,2 > anchorsfile.txt
+awk -F',' '{print $3,$2,$1}' outputanchors.txt | sort -nk2 > anchors2file.txt
+find . -type f -not -name 'cluster*.txt' -not -name 'anchor*file.txt' -print0 | xargs -0 rm --
