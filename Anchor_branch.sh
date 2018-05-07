@@ -102,8 +102,7 @@ sed 1d $i | sed 's/^ //g' >> $i.txt
 rm $i
 done
 pwd
-
-
+#########################Clustering the original input large-scale sequences#################
 while :
 do
 Copyscripts
