@@ -32,9 +32,6 @@ rm -rf result
 function Matchancseqs(){
 id=${id[0]}
 perl an_seq_amb.pl anchor_group$id CLUanchor_group$id.txt > Anc_clu.txt
-#awk '/^>/{$0=$0",'$clustername'."(++i)}1' Anc_clu.txt > Anc_clu_num.txt
-#awk '/^>/{$0=$0",'Anchordis${ancdis}'-'$n'-"(++i)}1' Anc_clu.txt > Anc_clu_num.txt
-#grep '^>' Anc_clu.txt | sed "s/$/,ancdis$ancdis/g" > Anchor666s.txt
 sed 's/^ //g' Anc_clu.txt > Anc_clus.txt
 rm CLUanchor_group*.txt
 rm anchor_group*
@@ -42,7 +39,6 @@ rm anchor_group*
 ############ cut Clusters by their coors########
 ############ place in dir include Clusters.txt##########
 function Cutclusters(){
-#awk '/>/ {close(x); x="cluster"++i;}{print > x;}' Anc_clus.txt
 awk '/^>/{$0=$0",'$clustername'."(++i)}1' Anc_clus.txt > Anc_label_clus$clustername.txt
 grep '^>' Anc_label_clus$clustername.txt | sed "s/$/,ancdis$ancdis/g" > Anchors$clustername.txt
 awk '/>/ {close(x); x="cluster'$clustername'."++i;}{print > x;}' Anc_label_clus$clustername.txt
