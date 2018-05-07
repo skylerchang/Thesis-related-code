@@ -148,5 +148,4 @@ pwd
 cd ../
 find . -type f -name 'Anchors*.txt' -exec cat {} + >> outputanchors.txt
 awk -F',' '{print $3,$2,$1}' outputanchors.txt | sort -gk1,1r -gk2,2 > anchorsfile.txt
-awk -F',' '{print $3,$2,$1}' outputanchors.txt | sort -nk2 > anchors2file.txt
 find . -type f -not -name 'cluster*.txt' -not -name 'anchor*file.txt' -print0 | xargs -0 rm --
